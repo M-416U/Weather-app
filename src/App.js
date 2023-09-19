@@ -1,23 +1,10 @@
 import axios from "axios";
 import { SVGS } from "./SVGS/SVG";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 function App() {
   const [Location, setLocation] = useState("Cairo");
   const [errMsg, setErr] = useState("");
-  const Wapi = `https://api.openweathermap.org/data/2.5/weather?q=${Location}&appid=4e4a2b0dedffb478caebaa6d21c229b7&&units=metric`;
-  useEffect(() => {
-    const DLocation = "Cairo";
-    setLocation(DLocation);
-    handelSearch();
-  }, []);
-  const [data, setData] = useState({
-    Country: "EG*",
-    Status: "Clear",
-    wind: "25*",
-    humidity: "20*",
-    celsius: "20*",
-  });
-  const handelSearch = () => {
+  const handelSearch = useCallback(() => {
     if (Location !== "") {
       axios
         .get(Wapi)
@@ -37,7 +24,20 @@ function App() {
           setErr(err.response.data.message);
         });
     }
-  };
+  });
+  const Wapi = `https://api.openweathermap.org/data/2.5/weather?q=${Location}&appid=4e4a2b0dedffb478caebaa6d21c229b7&&units=metric`;
+  useEffect(() => {
+    const DLocation = "Cairo";
+    setLocation(DLocation);
+    handelSearch();
+  }, [handelSearch]);
+  const [data, setData] = useState({
+    Country: "EG*",
+    Status: "Clear",
+    wind: "25*",
+    humidity: "20*",
+    celsius: "20*",
+  });
   const handelEnter = (e) => {
     if (e.key === "Enter") {
       handelSearch();
