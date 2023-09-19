@@ -1,0 +1,127 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  background: url('../public/assest/sunsetBG.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  margin: 50px auto;
+  width: 80%;
+  height: 80vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.search-bar {
+  padding: 15px;
+  position: relative;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 65%;
+  background-color: rgba(65, 78, 94, 0.2);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
+  color: #fff;
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+.search-bar input::placeholder {
+  color: #fff;
+}
+
+.search-bar .search-icon {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  background-color: rgba(65, 78, 94, 0.2);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  position: absolute;
+  padding: 5px 15px;
+  right: calc(17.5% + 10px);
+  top: 15px;
+  border-radius: 5px;
+}
+
+.search-bar .search-icon:hover {
+  background-color: rgba(65, 78, 94, 0.5);
+}
+
+.resolts-bar {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.main-details {
+  margin: 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.main-details .deg {
+  font-size: 16px;
+}
+
+.status {
+  padding: 30px;
+  position: absolute;
+  right: calc(17.5% - 30px);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+.name,
+.status {
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: 5px;
+}
+
+.name {
+  display: inline-block;
+  min-width: 140px;
+}
+
+.other-details {
+  border-radius: 15px;
+  width: 70%;
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.errmsg {
+  position: absolute;
+  bottom: -10px;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.perc,
+.errmsg {
+  text-align: center;
+  font-size: 23px;
+  font-weight: 300;
+}
